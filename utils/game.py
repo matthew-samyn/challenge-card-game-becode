@@ -68,10 +68,10 @@ class Board(Deck):
             self.history_cards.append(history_card)
         self.turn_count += 1
         print(f"""
-Turn count: {self.turn_count}
-Last played cards: {self.active_cards}
-Number of cards out: {len(self.history_cards)}
-""")
+    Turn count: {self.turn_count}
+    Last played cards: {self.active_cards}
+    Number of cards out: {len(self.history_cards)}
+    """)
 
 
 
