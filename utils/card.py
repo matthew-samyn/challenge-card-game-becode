@@ -1,4 +1,5 @@
 class Symbol():
+    """ Class that stores the color and icon of a card. """
     def __init__(self):
         self.color = "RED"
         self.icon = "♥"
@@ -8,6 +9,7 @@ class Symbol():
 
 
 class Card(Symbol):
+    """ Class that stores the value of a card. """
     def __init__(self):
         super().__init__()
         self.value = "A"
