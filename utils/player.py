@@ -31,7 +31,9 @@ class Player(Card):
         card_played = choice(self.cards)
         self.cards.remove(card_played)
         self.history.append(card_played)
-        print(f"{name} {self.turn_count} played: {card_played[:-1]} {card_played[-1]}")
+        self.icon = card_played[-1]
+        self.value = card_played[:-1]
+        print(f"{name} {self.turn_count} played: {self.value} {self.icon}")
         return card_played
 
 
