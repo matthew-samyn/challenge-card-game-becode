@@ -4,7 +4,7 @@ from random import shuffle
 from time import sleep
 from typing import List
 
-class Player(Card):
+class Player(Card): # COACHES' NOTES: Player should not interhit from Card.
     """
     Class assigned to each player in a cardgame.
 
@@ -26,6 +26,8 @@ class Player(Card):
         :param name: A str containing the name of the player.
         :return: A string of the cards being played.
         """
+        # COACHES' NOTES: Best practices with the random library is to just do `import random`.
+        # and do random.choice(...). It makes it easier to see that the choice method comes from random.
         sleep(choice([0.5, 1, 1.5]))
         self.turn_count += 1
         card_played = choice(self.cards)
@@ -33,13 +35,14 @@ class Player(Card):
         self.history.append(card_played)
         self.icon = card_played[-1]
         self.value = card_played[:-1]
+        #COACHES' NOTES: It would have been easier to add a `name` property to the Player class.
         print(f"{name} {self.turn_count} played: {self.value} {self.icon}")
         return card_played
 
 
 
 
-class Deck(Player):
+class Deck(Player): # COACHES' NOTES: Deck should not interhit from Player.
     """
     Class to create a deck of cards.
 
@@ -62,6 +65,7 @@ class Deck(Player):
         symbols = ["♥", "♦", "♣", "♠"]
         for symbol in symbols:
             for value in values:
+                #COACHES' NOTES: This list of cards should hold Card objects, not strings.
                 self.cards.append(value+symbol)
 
     def shuffle(self):
