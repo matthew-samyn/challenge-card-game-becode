@@ -3,7 +3,7 @@ from utils.player import Deck
 from itertools import chain
 from itertools import repeat
 
-class Board(Deck):
+class Board(Deck): # COACHES' NOTES: Board should not interhit from Deck.
     """
     Class that handles a cardgame between a number of players.
 
@@ -26,6 +26,9 @@ class Board(Deck):
         Method that assigns each name to a class instance of Player
         Saves it in a list and dict {name: class instance}
         """
+        #COACHES' NOTES: It would have been easier to add a name property to the Player class.
+        # THis would have also made it so that you can just a variable like `list_of_players`,
+        # instead of sometimes using `list_of_class_Player`, `players` and other times `dict_of_class_Player`.
         for player in self.players:
             self.list_of_class_Player.append(Player())
             self.dict_of_class_Player = {key: value for key, value in zip(self.players, self.list_of_class_Player)}
@@ -50,6 +53,7 @@ class Board(Deck):
         :param card_per_player: An int containing the number of cards each player has.
         :return: Calls method to print an informative message on the status of the game.
         """
+        # COACHES' NOTES: It is really hard to understand what the next line does
         player_lst_equal_to_number_of_cards = chain.from_iterable(repeat(self.players, card_per_player))
         for name in player_lst_equal_to_number_of_cards:
             card_played = self.dict_of_class_Player[name].play(name) # Calls method .play() of a Player instance.
