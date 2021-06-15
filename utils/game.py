@@ -78,8 +78,7 @@ class Board(Deck): # COACHES' NOTES: Board should not interhit from Deck.
     """)
 
 
-
-
+tple = [(2,0),(2,2),(4,0),(4,2)]
 
 
 
